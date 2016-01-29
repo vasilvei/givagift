@@ -45,11 +45,11 @@ gulp.task('install', ['git-check'], function() {
     });
 });
 
-gulp.task('test', function(done) {
+gulp.task('test',function(done) {
   new Server({
-    configFile: __dirname + '/tests/karma.conf.js',
-    singleRun: true
-  }, done).start();
+  configFile: __dirname + '/tests/karma.conf.js',
+  singleRun: true
+  }, function (){ done() }).start();
 });
 
 gulp.task('build', ['test', 'sass']);
